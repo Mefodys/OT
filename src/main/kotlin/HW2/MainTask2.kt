@@ -15,9 +15,6 @@ fun main() {
     val years = months / 12 - 1
     val lastmonths = months % 12 - 1
 
-//    println(hours)
-//    println(days)
-//    println(months)
     println("$years $lastmonths")
-//    println(lastmonths)
+
 }

@@ -13,9 +13,11 @@ fun main() {
             var number = readln().toInt()
             flag = true
 
+            if
+
             val countOfSymols = number.toString().length
             //println(countOfSymols)
-            if (countOfSymols ==3){
+            if (countOfSymols == 3 && number > 99){
                 var times = 3
                 var sum = 0
                 var lastdigit = 0

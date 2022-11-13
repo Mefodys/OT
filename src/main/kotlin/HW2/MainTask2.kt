@@ -1,4 +1,4 @@
-package HW2_
+package HW2
 
 fun main() {
 //    Task2 - https://github.com/otuskotlin/202209-okb-homework/blob/main/HW-2/Task-2.md

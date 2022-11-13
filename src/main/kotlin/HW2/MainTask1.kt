@@ -1,21 +1,40 @@
-package HW2_
+package HW2
 
 fun main() {
 //    Task1 - https://github.com/otuskotlin/202209-okb-homework/blob/main/HW-2/Task-1.md
 //    На вход подается одно натуральное трехзначное число - N. Напишите код, который будет вычислять сумму цифр в данном числе.
 //    Ответ должен содержать одно натуральное число.
 
-    var number = readln().toInt()
+    var flag:Boolean = false
 
-    var times = 3
-    var sum = 0
-    var lastdigit = 0
-    while(times > 0){
-        lastdigit = number % 10
-        sum = sum + lastdigit
-        number = number / 10
+    while (flag != true){
+        try {
+            println("Please enter a digit with 3 symbols (like 456 or 333 or 190):")
+            var number = readln().toInt()
+            flag = true
 
-        times -=1
+            val countOfSymols = number.toString().length
+            //println(countOfSymols)
+            if (countOfSymols ==3){
+                var times = 3
+                var sum = 0
+                var lastdigit = 0
+                while(times > 0){
+                    lastdigit = number % 10
+                    sum = sum + lastdigit
+                    number = number / 10
+
+                    times -=1
+                }
+                println("Sum of digits is $sum. Bye!")
+            }
+            else {
+                println("you entered not a 3 symbols digit :( \n")
+                flag = false
+            }
+
+        } catch (e: Exception) {
+            println("It is necessary to input a digit with 3 symbols.")
+        }
     }
-    println(sum)
 }

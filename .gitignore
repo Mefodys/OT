@@ -1,1 +1,15 @@
 .gradle
+/.idea/.gitignore
+/build.gradle.kts
+/.idea/compiler.xml
+/gradle.properties
+/.idea/gradle.xml
+/gradle/wrapper/gradle-wrapper.jar
+/gradle/wrapper/gradle-wrapper.properties
+/gradlew
+/gradlew.bat
+/.idea/jarRepositories.xml
+/.idea/kotlinc.xml
+/.idea/misc.xml
+/settings.gradle.kts
+/.idea/vcs.xml

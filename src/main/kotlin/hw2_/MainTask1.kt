@@ -1,4 +1,4 @@
-package HW2
+package hw2_
 
 fun main() {
 //    Task1 - https://github.com/otuskotlin/202209-okb-homework/blob/main/HW-2/Task-1.md
@@ -13,7 +13,6 @@ fun main() {
             var number = readln().toInt()
             flag = true
 
-            if
 
             val countOfSymols = number.toString().length
             //println(countOfSymols)

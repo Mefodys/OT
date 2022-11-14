@@ -14,3 +14,4 @@
 /settings.gradle.kts
 /.idea/vcs.xml
 /.idea/uiDesigner.xml
+/build/*

@@ -35,55 +35,23 @@ import java.util.Scanner
  */
 fun main() {
     try{
-//        println("Enter a number of the month in the year (for instance 1 or 2 or 3 or 5 or 12, etc)")
-//        val month = readln().toInt()
-//        println("Enter number of the day in a month (for instance 1 or 2 or 3 or 15 or 30 or 31, etc)")
-//        val day = readln().toInt()
         println("Enter two digits. The first digit is a month, the second digit is a day.\n" +
                 "The progamm will show how many days left till New Year! :)\n" +
                 "Example: \n" +
                 "8 1")
 
-
         val input = Scanner(System.`in`)
         val months = input.nextInt()
         val days = input.nextInt()
 
-//        val monthsflag = when (a){
-//            in 1..12 -> true
-//            else -> false
-//        }
-//        val daysflag = when(b){
-//            in 1..31 -> true
-//            else ->false
-//        }
 
-//        if (monthsflag && daysflag){
-//            println("$a $b are OK")
-//        tests:
-//        1 31
-//        1 32
-//        1 0
-//        1 -1
-//        0 0
-//        0 -1
-//        0 31
-//        0 32
         when(months){
             1 -> {
                 val daysShoudBeInMonth = 31
-
                 if (days in 1..daysShoudBeInMonth) {
-                    //println("days are OK")
-
                     val daysTillTheEndOfMonth = daysShoudBeInMonth - days
-                    //println(daysTillTheEndOfMonth)
-
                     val daysInNextMonths = 28+31+30+31+30+31+31+30+31+30+31
-                    //println(daysInNextMonths)
-
                     println(daysTillTheEndOfMonth+daysInNextMonths)
-
                 }
                 else{
                     println("count of days is not correct. This month does have such amount of days. Sorry.")
@@ -91,37 +59,20 @@ fun main() {
             }
             2 -> {
                 val daysShoudBeInMonth = 28
-
                 if (days in 1..daysShoudBeInMonth) {
-                    //println("days are OK")
-
                     val daysTillTheEndOfMonth = daysShoudBeInMonth - days
-                    //println(daysTillTheEndOfMonth)
-
                     val daysInNextMonths = 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31
-                    //println(daysInNextMonths)
-
                     println(daysTillTheEndOfMonth + daysInNextMonths)
-
                 } else {
                     println("count of days is not correct. This month does have such amount of days. Sorry.")
                 }
             }
-
             3 -> {
                 val daysShoudBeInMonth = 31
-
                 if (days in 1..daysShoudBeInMonth) {
-                    //println("days are OK")
-
                     val daysTillTheEndOfMonth = daysShoudBeInMonth - days
-                    //println(daysTillTheEndOfMonth)
-
                     val daysInNextMonths = 30+31+30+31+31+30+31+30+31
-                    //println(daysInNextMonths)
-
                     println(daysTillTheEndOfMonth+daysInNextMonths)
-
                 }
                 else{
                     println("count of days is not correct. This month does have such amount of days. Sorry.")
@@ -129,18 +80,10 @@ fun main() {
             }
             4 -> {
                 val daysShoudBeInMonth = 30
-
                 if (days in 1..daysShoudBeInMonth) {
-                    //println("days are OK")
-
                     val daysTillTheEndOfMonth = daysShoudBeInMonth - days
-                    //println(daysTillTheEndOfMonth)
-
                     val daysInNextMonths = 31+30+31+31+30+31+30+31
-                    //println(daysInNextMonths)
-
                     println(daysTillTheEndOfMonth+daysInNextMonths)
-
                 }
                 else{
                     println("count of days is not correct. This month does have such amount of days. Sorry.")
@@ -148,18 +91,10 @@ fun main() {
             }
             5 -> {
                 val daysShoudBeInMonth = 31
-
                 if (days in 1..daysShoudBeInMonth) {
-                    //println("days are OK")
-
                     val daysTillTheEndOfMonth = daysShoudBeInMonth - days
-                    //println(daysTillTheEndOfMonth)
-
                     val daysInNextMonths = 30+31+31+30+31+30+31
-                    //println(daysInNextMonths)
-
                     println(daysTillTheEndOfMonth+daysInNextMonths)
-
                 }
                 else{
                     println("count of days is not correct. This month does have such amount of days. Sorry.")
@@ -167,18 +102,10 @@ fun main() {
             }
             6 -> {
                 val daysShoudBeInMonth = 30
-
                 if (days in 1..daysShoudBeInMonth) {
-                    //println("days are OK")
-
                     val daysTillTheEndOfMonth = daysShoudBeInMonth - days
-                    //println(daysTillTheEndOfMonth)
-
                     val daysInNextMonths = 31+31+30+31+30+31
-                    //println(daysInNextMonths)
-
                     println(daysTillTheEndOfMonth+daysInNextMonths)
-
                 }
                 else{
                     println("count of days is not correct. This month does have such amount of days. Sorry.")
@@ -186,16 +113,9 @@ fun main() {
             }
             7 ->  {
                 val daysShoudBeInMonth = 31
-
                 if (days in 1..daysShoudBeInMonth) {
-                    //println("days are OK")
-
                     val daysTillTheEndOfMonth = daysShoudBeInMonth - days
-                    //println(daysTillTheEndOfMonth)
-
                     val daysInNextMonths = 31+30+31+30+31
-                    //println(daysInNextMonths)
-
                     println(daysTillTheEndOfMonth+daysInNextMonths)
 
                 }
@@ -205,18 +125,10 @@ fun main() {
             }
             8 ->  {
                 val daysShoudBeInMonth = 31
-
                 if (days in 1..daysShoudBeInMonth) {
-                    //println("days are OK")
-
                     val daysTillTheEndOfMonth = daysShoudBeInMonth - days
-                    //println(daysTillTheEndOfMonth)
-
                     val daysInNextMonths = 30+31+30+31
-                    //println(daysInNextMonths)
-
                     println(daysTillTheEndOfMonth+daysInNextMonths)
-
                 }
                 else{
                     println("count of days is not correct. This month does have such amount of days. Sorry.")
@@ -224,18 +136,10 @@ fun main() {
             }
             9 -> {
                 val daysShoudBeInMonth = 30
-
                 if (days in 1..daysShoudBeInMonth) {
-                    //println("days are OK")
-
                     val daysTillTheEndOfMonth = daysShoudBeInMonth - days
-                    //println(daysTillTheEndOfMonth)
-
                     val daysInNextMonths = 31+30+31
-                    //println(daysInNextMonths)
-
                     println(daysTillTheEndOfMonth+daysInNextMonths)
-
                 }
                 else{
                     println("count of days is not correct. This month does have such amount of days. Sorry.")
@@ -243,18 +147,10 @@ fun main() {
             }
             10 -> {
                 val daysShoudBeInMonth = 31
-
                 if (days in 1..daysShoudBeInMonth) {
-                    //println("days are OK")
-
                     val daysTillTheEndOfMonth = daysShoudBeInMonth - days
-                    //println(daysTillTheEndOfMonth)
-
                     val daysInNextMonths = 30+31
-                    //println(daysInNextMonths)
-
                     println(daysTillTheEndOfMonth+daysInNextMonths)
-
                 }
                 else{
                     println("count of days is not correct. This month does have such amount of days. Sorry.")
@@ -262,18 +158,10 @@ fun main() {
             }
             11 -> {
                 val daysShoudBeInMonth = 30
-
                 if (days in 1..daysShoudBeInMonth) {
-                    //println("days are OK")
-
                     val daysTillTheEndOfMonth = daysShoudBeInMonth - days
-                    //println(daysTillTheEndOfMonth)
-
                     val daysInNextMonths = 31
-                    //println(daysInNextMonths)
-
                     println(daysTillTheEndOfMonth+daysInNextMonths)
-
                 }
                 else{
                     println("count of days is not correct. This month does have such amount of days. Sorry.")
@@ -281,18 +169,10 @@ fun main() {
             }
             12 ->  {
                 val daysShoudBeInMonth = 31
-
                 if (days in 1..daysShoudBeInMonth) {
-                    //println("days are OK")
-
                     val daysTillTheEndOfMonth = daysShoudBeInMonth - days
-                    //println(daysTillTheEndOfMonth)
-
                     val daysInNextMonths = 0
-                    //println(daysInNextMonths)
-
                     println(daysTillTheEndOfMonth+daysInNextMonths)
-
                 }
                 else{
                     println("count of days is not correct. This month does have such amount of days. Sorry.")
@@ -300,19 +180,9 @@ fun main() {
             }
             else -> {
                 println("You have entered incorrect number of the month or the date. Bye!")
-                -1
             }
 
         }
-
-
-            //val daysTillTheEndOfYear = 365 - ? - daysTillTheEndOfMonth
-
-
-        //        }
-//        else {
-//            println("You have entered incorrect number of the month or the date.")
-//        }
 
     } catch(e: Exception){
         println("You have entered incorrect number of the month or the date. Bye!")

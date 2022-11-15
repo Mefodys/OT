@@ -26,7 +26,6 @@ fun main() {
         println("please input a positive integer number and the programm will check is it a palindrom or not:")
 
         val number = readln().toInt()
-        //println(number)
 
         if (number < 0)
         {
@@ -34,12 +33,8 @@ fun main() {
         }
         else{
             val result =  isPalindrom(number)
-            if (result == true){
-                println("true")
-            }
-            else{
-                println("false")
-            }
+            if (result) println("true")
+            else println("false")
         }
 
 
@@ -50,25 +45,16 @@ fun main() {
 }
 
 fun isPalindrom (number: Int): Boolean {
-    var flag = false
-    //println("checking input for palindrom...")
+    var flag = true
 
     val numberToString = number.toString()
     val numberToStringReversed = numberToString.reversed()
-    //println(numberToString)
-    //println(numberToStringReversed)
-
 
     for (i in 0 .. numberToString.length / 2){
-        //println("${numberToString[i]}, ${numberToStringReversed[i]}")
 
         if (numberToString[i] != numberToStringReversed[i]){
             flag = false
             break
-        }
-        else{
-            flag = true
-
         }
     }
 

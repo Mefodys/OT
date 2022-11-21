@@ -18,9 +18,10 @@ https://github.com/otuskotlin/202209-okb-homework/blob/main/HW-6/Task-1.md
 2 3 5 6 7 9 12 45 45 65 76 87 326 355 672
      */
 fun main() {
+    val tempRange = 1..Int.MAX_VALUE
     try{
         val n = readln().toInt()
-        if (n in 1..Int.MAX_VALUE){
+        if ((tempRange).contains(n)){
             try {
 
                 val myListOfNumbers = mutableListOf<Int>()
@@ -29,7 +30,7 @@ fun main() {
                 for (i in 0 until n){
                     val mynumber = myNumbersList.nextInt()
 
-                    if (mynumber in 0..100000) {myListOfNumbers.add(mynumber)}
+                    if ((tempRange).contains(mynumber)) {myListOfNumbers.add(mynumber)}
                     else{
                         println("incorrect number. numbers should be in range of 0 till 100000")
                         redflag = true

@@ -25,31 +25,40 @@ T75Dghe$?
 
 // проверка на пробелы в пароле.
 
+enum class ReturnValues {
+    SUCCESS,//("проверка пройдена"), //0
+    SPACESFOUND, //("пробелы в пароле. их быть не должно"), //1
+    INCORRECTRULES, //("не соответвует правилам"), //2
+    NODIGITS, // ("нет цифрт"), //3
+    NOUPPERLETTERS, //("нет заглавных букв в пароле"), //4
+    NOTHREESAMESYMBOLSINARAW //("не должно быть 3 одинаковых символа подряд.*"), //5
+
+}
+
 fun main() {
     val userPassword = readln()
-    val result: Int = validateUserPassword(userPassword)
-    when (result){
-        0 -> println("проверка пройдена")
-        1 -> println("пробелы в пароле. их быть не должно")
-        2 -> println("не соответвует правилам")
-        3 -> println("нет цифрт")
-        4 -> println("нет заглавных букв в пароле")
-        5 -> println("не должно быть 3 одинаковых символа подряд.*")
-        else -> ("ошибка валидации")
+    when (validateUserPassword(userPassword)){
+        ReturnValues.SUCCESS -> println("проверка пройдена")
+        ReturnValues.SPACESFOUND -> println("пробелы в пароле. их быть не должно")
+        ReturnValues.INCORRECTRULES -> println("не соответвует правилам")
+        ReturnValues.NODIGITS -> println("нет цифрт")
+        ReturnValues.NOUPPERLETTERS -> println("нет заглавных букв в пароле")
+        ReturnValues.NOTHREESAMESYMBOLSINARAW -> println("не должно быть 3 одинаковых символа подряд.*")
+        //else -> ("ошибка валидации")
 
     }
 }
 
-fun validateUserPassword(userPassword: String): Int{
+fun validateUserPassword(userPassword: String): ReturnValues{
     val userPassword = userPassword
 
-    if (!checkPasswordForSpaces(userPassword)) return 1 // "пробелмы в пароле. их быть не должно"
-    if (!checkPasswordLength(userPassword)) return 2    // "не соответвует правилам"
-    if (!checkPasswordForMinOneDigit(userPassword)) return 3   // "нет цифр"
-    if (!checkPasswordForMinOneUppercaseLetter(userPassword)) return 4    // "нет заглавных букв в пароле"
-    if (!checkForTreeSameSymbolsInaRaw(userPassword)) return 5    // "не должно быть 3 одинаковых символа подряд.*"
+    if (!checkPasswordForSpaces(userPassword)) return ReturnValues.SPACESFOUND // "пробелмы в пароле. их быть не должно"
+    if (!checkPasswordLength(userPassword)) return ReturnValues.INCORRECTRULES    // "не соответвует правилам"
+    if (!checkPasswordForMinOneDigit(userPassword)) return ReturnValues.NODIGITS   // "нет цифр"
+    if (!checkPasswordForMinOneUppercaseLetter(userPassword)) return ReturnValues.NOUPPERLETTERS    // "нет заглавных букв в пароле"
+    if (!checkForTreeSameSymbolsInaRaw(userPassword)) return ReturnValues.NOTHREESAMESYMBOLSINARAW    // "не должно быть 3 одинаковых символа подряд.*"
 
-    return 0 // проверка пройдена
+    return ReturnValues.SUCCESS  // проверка пройдена
 }
 
 
@@ -57,8 +66,10 @@ fun checkPasswordForSpaces(userPassword: String): Boolean{
     return " " !in userPassword
 }
 
+
 fun checkPasswordLength(userPassword: String): Boolean{
-    return userPassword.length in 6..50
+    val tempRange = 6..50
+    return tempRange.contains(userPassword.length)
 }
 
 fun checkPasswordForMinOneDigit(userPassword: String): Boolean{

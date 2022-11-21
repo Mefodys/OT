@@ -23,6 +23,7 @@ fun main() {
 
     val myMinRange:Int = -10000
     val myMaxRange:Int = 10000
+    //val a = setOf(-10000..10000)
 
     try{
         val input = Scanner(System.`in`)
@@ -32,13 +33,13 @@ fun main() {
         val y2 = input.nextInt()
 
         if (
-            (x1 in (myMinRange + 1) until myMaxRange) &&
-            (x2 in (myMinRange + 1) until myMaxRange) &&
-            (y1 in (myMinRange + 1) until myMaxRange) &&
-            (y2 in (myMinRange + 1) until myMaxRange)
+            (x1 >= myMinRange && x1 <=myMaxRange) &&
+            (x2 >= myMinRange && x2 <=myMaxRange) &&
+            (y1 >= myMinRange && y1 <=myMaxRange) &&
+            (y2 >= myMinRange && y2 <=myMaxRange)
         ){
             val result = lengthOfLine(x1, x2, y1, y2)
-            var stringResult = String.format("%.6f", result)
+            val stringResult = String.format("%.6f", result)
             println(stringResult)
         }
         else{

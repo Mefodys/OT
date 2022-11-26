@@ -60,5 +60,6 @@ class FractionalNumber(val numerator:Long, val denumerator:Long){
 
     override fun toString(): String {
         return "FractionalNumber(numerator=$numerator, denumerator=$denumerator)"
+
     }
 }

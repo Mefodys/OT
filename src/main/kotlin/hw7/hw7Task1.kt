@@ -9,6 +9,16 @@ fun main() {
     val newFractionalNumber1 = FractionalNumber(1,2)
     val newFractionalNumber2 = FractionalNumber(3,8)
 
+    println("\naddition test:")
+
+    val resulOfAddition = newFractionalNumber1 + newFractionalNumber2
+    println(resulOfAddition)
+
+    println("\nsubstruction test:")
+
+    val resulOfSubstruction = newFractionalNumber1 + newFractionalNumber2
+    println(resulOfSubstruction)
+
     println("\nequals test:")
     println(newFractionalNumber1.equals(newFractionalNumber1))
     println(newFractionalNumber1.equals(newFractionalNumber2))
@@ -19,11 +29,6 @@ fun main() {
     println("\nhashCode test:")
     println(newFractionalNumber1.hashCode())
 
-    println("\naddition test:")
-    newFractionalNumber1.addition(newFractionalNumber2)
-
-    println("\nsubstruction test:")
-    newFractionalNumber1.substruction(newFractionalNumber2)
 }
 
 class FractionalNumber(val numerator:Long, val denumerator:Long){
@@ -31,18 +36,9 @@ class FractionalNumber(val numerator:Long, val denumerator:Long){
         println("FractionalNumber is created: $numerator/$denumerator")
     }
 
-    fun addition (digit2:FractionalNumber): FractionalNumber{
-        val num = this.numerator * digit2.denumerator + digit2.numerator * this.denumerator
-        val denum = digit2.denumerator * this.denumerator
-        return FractionalNumber (num, denum)
-    }
+    operator fun plus(p: FractionalNumber) = FractionalNumber(this.numerator * p.denumerator + p.numerator * this.denumerator, p.denumerator * this.denumerator)
 
-    fun substruction (digit2:FractionalNumber): FractionalNumber{
-        val num = this.numerator * digit2.denumerator - digit2.numerator * this.denumerator
-        val denum = digit2.denumerator * this.denumerator
-        return FractionalNumber (num, denum)
-    }
-
+    operator fun minus(p: FractionalNumber) = FractionalNumber(this.numerator * p.denumerator - p.numerator * this.denumerator, p.denumerator * this.denumerator)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -64,5 +60,6 @@ class FractionalNumber(val numerator:Long, val denumerator:Long){
 
     override fun toString(): String {
         return "FractionalNumber(numerator=$numerator, denumerator=$denumerator)"
+
     }
 }

@@ -1,5 +1,4 @@
 package hw7
-
 import java.time.LocalDate
 import java.util.*
 
@@ -30,15 +29,15 @@ fun main() {
 
 enum class OrderStatus{
     SEND, //отправлен,
-    WAITINGFORPAYMENT, // ждет оплаты,
-    ALREADYPAID, //оплачен
-    INPROCESS, //обрабатывается,
+    WAITING_FOR_PAYMENT, // ждет оплаты,
+    ALREADY_PAID, //оплачен
+    IN_PROCESS, //обрабатывается,
     DELIVERED //получен
 }
 
-class Date {
-    val date = { LocalDate.now()}
-}
+//class Date {
+//    val date = { LocalDate.now() }
+//}
 
 class Order(val customer: Customer, val details:OrderDetails, val payment: Payment){
     //val customer: Customer //покупатель
@@ -47,7 +46,7 @@ class Order(val customer: Customer, val details:OrderDetails, val payment: Payme
 
     val date = LocalDate.now() //дата оформления
 
-    lateinit var status: OrderStatus //текущий статус, где OrderStatus - enum из: отправлен, ждет оплаты, оплачен, обрабатывается, получен
+    var status: OrderStatus = OrderStatus.WAITING_FOR_PAYMENT//текущий статус, где OrderStatus - enum из: отправлен, ждет оплаты, оплачен, обрабатывается, получен
 
     fun calcPrice(): Int { return 1}
     fun calcWeight(): Int { return 1}
@@ -77,13 +76,13 @@ class OrderItem (
 
 
 class Customer(val name: String){
-    val address: String? = "" // опциональный адрес в виде строки
+    val address: String? = "default address" // опциональный адрес в виде строки
     val orders: List<Order> //список заказов
         get() {
             TODO()
         }
 
-    constructor(name:String, address:String?): this(name)
+    //constructor(name:String, address:String?): this(name)
 
     fun calcPrice(): Int { return 1 }
     fun calcWeight(): Int {return 1 }
@@ -98,15 +97,15 @@ enum class Currency(val value:String) {
 
 enum class PaymentStatus{
     PAID,
-    NOTPAID,
-    INPROCESS
+    NOT_PAID,
+    IN_PROCESS
 }
 
 
 abstract class Payment(val amount: Int, val currency: Currency ){
     //кол-во
     //тип валюты , где Currency - enum как минимум из: рубли, доллары, евро. такой enum должен содержать в качестве значения текстовый код валюты, например, для рублей - это "rub"
-    lateinit var status: PaymentStatus //статус платежа где PaymentStatus - enum из: не оплачен, в обработке, оплачен
+    var status: PaymentStatus  = PaymentStatus.NOT_PAID//статус платежа где PaymentStatus - enum из: не оплачен, в обработке, оплачен
 
     open fun performPayment(): Unit {}
 }

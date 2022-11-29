@@ -76,7 +76,7 @@ class OrderItem (
 
 
 class Customer(val name: String){
-    val address: String? = "default address" // опциональный адрес в виде строки
+    val address: String = "" // опциональный адрес в виде строки
     val orders: List<Order> //список заказов
         get() {
             TODO()

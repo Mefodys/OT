@@ -14,17 +14,47 @@ abstract class Man{
     protected abstract val surname: String
 }
 
-class Employee(override val name:String, override val surname: String, val position: String) : Man(){
-    val pastPosition: Set<PastPosition> = setOf()
-    val department: Department
+class Employee(override val name:String, override val surname: String, private val position: String) : Man(){
+    private val pastPosition: Set<PastPosition> = setOf()
+    private val department: Department
         get() {
             TODO()
         }
 
-    val room:Set<Room> = setOf()
-    val idCard: IdCard = TODO()
-    fun deletePastPosition(pastPos:PastPosition){}
-    fun deleteRoom(room:Room) {}
+    private val room:Set<Room> = setOf()
+    private val idCard: IdCard = TODO()
+    private fun deletePastPosition(pastPos:PastPosition){}
+    private fun deleteRoom(room:Room) {}
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as Employee
+
+        if (name != other.name) return false
+        if (surname != other.surname) return false
+        if (position != other.position) return false
+        if (pastPosition != other.pastPosition) return false
+        if (room != other.room) return false
+        if (idCard != other.idCard) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = name.hashCode()
+        result = 31 * result + surname.hashCode()
+        result = 31 * result + position.hashCode()
+        result = 31 * result + pastPosition.hashCode()
+        result = 31 * result + room.hashCode()
+        result = 31 * result + idCard.hashCode()
+        return result
+    }
+
+    override fun toString(): String {
+        return "Employee(name='$name', surname='$surname', position='$position', pastPosition=$pastPosition, room=$room, idCard=$idCard)"
+    }
 
 }
 
@@ -36,7 +66,7 @@ open class Department(override var personsCount: Int) : Unit {
 
 }
 
-class PastPosition (personsCount: Int): Department(personsCount) {
+data class PastPosition (override var personsCount: Int): Department(personsCount) {
     val name: String = ""
     val department:Department = TODO()
 }
@@ -45,7 +75,7 @@ class IdCard (val number: Int){
     val dateExpire: Date = Date()
 }
 
-class Room(val number: Int)
+data class Room(val number: Int)
 
 fun main() {
 

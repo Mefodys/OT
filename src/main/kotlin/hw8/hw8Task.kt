@@ -15,11 +15,8 @@ abstract class Man{
 }
 
 class Employee(override val name:String, override val surname: String, private val position: String) : Man(){
-    private val pastPosition: Set<PastPosition> = setOf()
-    private val department: Department
-        get() {
-            TODO()
-        }
+    val pastPosition: Set<PastPosition> = setOf()
+    val department: Department = TODO()
 
     private val room:Set<Room> = setOf()
     private val idCard: IdCard = TODO()
@@ -58,17 +55,18 @@ class Employee(override val name:String, override val surname: String, private v
 
 }
 
-open class Department(override var personsCount: Int) : Unit {
+class Department(override var personsCount: Int) : Unit {
     private val name:String =""
-    val employees: Set<Employee> = setOf()
-    fun addEmployee(empl:Employee) {}
-    fun removeEmployee(empl: Employee) {}
+    private val employees: Set<Employee> = setOf()
+    fun addEmployee(employee:Employee) {}
+    fun removeEmployee(employee: Employee) {}
 
 }
-
-data class PastPosition (override var personsCount: Int): Department(personsCount) {
-    val name: String = ""
-    val department:Department = TODO()
+//Класс class PastPosition (personsCount: Int): Department(personsCount) не наследуется от Department,
+// они составляют композицию. Department является частью PastPosition
+//open class Department соответственно open надо убрать
+//Тоже все еще на месте
+data class PastPosition(val name: String, val department:Department) {
 }
 
 class IdCard (val number: Int){

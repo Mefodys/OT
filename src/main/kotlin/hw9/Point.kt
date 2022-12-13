@@ -13,7 +13,7 @@ class Point(private var x: Double = 0.0, private var y: Double = 0.0) {
     }
 
     override fun toString(): String {
-        return "Point[\" + $x + \", \" + $y + \"]"
+        return "Point[$x, $y]"
     }
 
     //double distanceSq(Point pt)
@@ -70,10 +70,6 @@ class Point(private var x: Double = 0.0, private var y: Double = 0.0) {
         }
 
     }
-
-
-
-
 
 }
 

@@ -9,18 +9,18 @@ fun main() {
 
     println(p2.toString())
 
-    p2.setLocation(8.0,8.0)
+    p2.setLocation(8.0, 8.0)
     println(p2.toString())
 
     val p3 = Point(4.0, 5.0)
     val p4 = Point(6.0, 7.0)
 
     val l1 = Line(p3, p4)
-    val l2 = Line(1.1,2.2,3.3,4.4)
+    val l2 = Line(1.1, 2.2, 3.3, 4.4)
     val l3 = Line(l1)
     println(l3)
 
-    val l4 = Line(0.0,0.0,10.0,0.0)
+    val l4 = Line(0.0, 0.0, 10.0, 0.0)
     println(l4.firstPointX)
     println(l4.firstPointY)
     println(l4.secondPointX)
@@ -31,12 +31,12 @@ fun main() {
     println(l4.len())
     println()
 
-    val l5 = Line(0.0,0.0,4.0,0.0)
+    val l5 = Line(0.0, 0.0, 4.0, 0.0)
     println(l5)
     //val rotatedLine1 = l5.rotate(89.9)
     val rotatedLine2 = l5.rotate(90.0)
-   // val rotatedLine3 = l5.rotate(90.1)
-   // val rotatedLine4 = l5.rotate(179.9)
+    // val rotatedLine3 = l5.rotate(90.1)
+    // val rotatedLine4 = l5.rotate(179.9)
     val rotatedLine5 = l5.rotate(180.0)
     //val rotatedLine6 = l5.rotate(180.1)
     //val rotatedLine7 = l5.rotate(269.9)
@@ -69,7 +69,12 @@ fun main() {
 //    println(rotatedLine14)
 
     val l7 = Line(-3.0, 1.0, 3.0, -1.0)
-    println(l7.isOnLine(Point(0.0,0.0)))
+    println(l7.isOnLine(Point(0.0, 0.0)))
+
+    val p10 = Point(1.0, 0.0)
+    val p11 = Point(5.0, 0.0)
+    println(p10.distance(p11))
+    println(Point.distance(p10, p11))
 
 }
 

@@ -23,7 +23,7 @@ class Point(private var x: Double = 0.0, private var y: Double = 0.0) {
     }
 
     fun distance(a: Point): Double {
-        return sqrt((this.x - a.x) * (this.x - a.x) + (this.y - a.y) * (this.y - a.y))
+        return sqrt(distanceSq(a))
     }
 
     //void setLocation(double x, double y)
@@ -49,24 +49,23 @@ class Point(private var x: Double = 0.0, private var y: Double = 0.0) {
         }
 
         fun compareY(a: Point, b: Point): Int {
-            return when
-            {
+            return when {
                 a.y == b.y -> 0
-                a.y < b.y ->-1
+                a.y < b.y -> -1
                 else -> 1
             }
         }
 
         // static double distanceSq(Point a, Point b)
         // Возвращает квадрат расстояния между двумя точками.
-        fun distanceSq(a:Point,  b:Point): Double {
+        fun distanceSq(a: Point, b: Point): Double {
             return (b.x - a.x) * (b.x - a.x) + (b.y - a.y) * (b.y - a.y)
         }
 
         // static double distance(Point a, Point b)
         // Возвращает расстояние между двумя точками.
-        fun distance(a:Point,  b:Point): Double {
-            return sqrt((b.x - a.x) * (b.x - a.x) + (b.y - a.y) * (b.y - a.y))
+        fun distance(a: Point, b: Point): Double {
+            return sqrt(distanceSq(a, b))
         }
 
     }

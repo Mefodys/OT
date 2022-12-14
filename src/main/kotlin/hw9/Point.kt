@@ -2,7 +2,7 @@ package hw9
 
 import kotlin.math.sqrt
 
-class Point(private var x: Double = 0.0, private var y: Double = 0.0) {
+class Point(var x: Double = 0.0, var y: Double = 0.0) {
 
     fun getX(): Double {
         return this.x

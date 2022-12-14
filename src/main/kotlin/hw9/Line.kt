@@ -4,10 +4,10 @@ import kotlin.math.*
 
 class Line(private val pointOne: Point, private val pointTwo: Point) {
 
-    private val x1 = pointOne.getX()
-    private val y1 = pointOne.getY()
-    private val x2 = pointTwo.getX()
-    private val y2 = pointTwo.getY()
+    private val x1 = pointOne.x
+    private val y1 = pointOne.y
+    private val x2 = pointTwo.x
+    private val y2 = pointTwo.y
 
     constructor(
         firstPointX: Double,

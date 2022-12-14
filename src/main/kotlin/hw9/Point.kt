@@ -19,7 +19,7 @@ class Point(private var x: Double = 0.0, private var y: Double = 0.0) {
     //double distanceSq(Point pt)
     //Возвращает квадрат расстояния от этой Point до указанной точки.
     fun distanceSq(pt: Point): Double {
-        return (this.x - pt.x) * (this.x - pt.x) + (this.y - pt.y) * (this.y - pt.y)
+        return Point.distanceSq(Point(this.x,this.y),(Point(pt.x, pt.y)))
     }
 
     fun distance(a: Point): Double {

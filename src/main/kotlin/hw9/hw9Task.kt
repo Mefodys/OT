@@ -21,10 +21,6 @@ fun main() {
     println(l3)
 
     val l4 = Line(0.0, 0.0, 10.0, 0.0)
-    println(l4.firstPointX)
-    println(l4.firstPointY)
-    println(l4.secondPointX)
-    println(l4.secondPointY)
     val angle = l4.angle()
     println("angle is $angle")
 
@@ -75,6 +71,8 @@ fun main() {
     val p11 = Point(5.0, 0.0)
     println(p10.distance(p11))
     println(Point.distance(p10, p11))
+
+    println(p10.distanceSq(p11))
 
 }
 

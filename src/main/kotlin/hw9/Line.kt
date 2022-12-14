@@ -4,10 +4,10 @@ import kotlin.math.*
 
 class Line(private val pointOne: Point, private val pointTwo: Point) {
 
-    private val x1 = pointOne.x
-    private val y1 = pointOne.y
-    private val x2 = pointTwo.x
-    private val y2 = pointTwo.y
+//    private val x1 = pointOne.x
+//    private val y1 = pointOne.y
+//    private val x2 = pointTwo.x
+//    private val y2 = pointTwo.y
 
     constructor(
         firstPointX: Double,
@@ -23,13 +23,13 @@ class Line(private val pointOne: Point, private val pointTwo: Point) {
             this(Point(0.0, 0.0), Point(0.0, 0.0))
 
     override fun toString(): String {
-        return "Line[Point[$x1, $y1], Point[$x2, $y2]]"
+        return "Line[Point[${pointOne.getX()}, ${pointOne.getY()}], Point[${pointTwo.getX()}, ${pointTwo.getY()}]]"
     }
 
     fun angle(): Double {
 
-        val deltaX = (x2 - x1)
-        val deltaY = (y2 - y1)
+        val deltaX = (pointTwo.getX() - pointOne.getX())
+        val deltaY = (pointTwo.getY() - pointOne.getY())
         val theta = (atan2(deltaY, deltaX)) / (PI / 180)
 
         if (theta < 0) return theta + 360
@@ -39,7 +39,7 @@ class Line(private val pointOne: Point, private val pointTwo: Point) {
     //    Евклидова длина
     fun len(): Double {
 
-        return sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1))
+        return sqrt((pointTwo.getX() - pointOne.getX()) * (pointTwo.getX() - pointOne.getX()) + (pointTwo.getY() - pointOne.getY()) * (pointOne.getY() - pointOne.getY()))
     }
 
     //Line rotate(double degrees)
@@ -59,8 +59,8 @@ class Line(private val pointOne: Point, private val pointTwo: Point) {
         // val new_by = sin_angle cos_angle]*(b-a).';
         // ??? если одна из точек не находится в 0.0, то сместить всю линию к 0.0
 
-        val Px2 = (x2) * cos(rad) + (y2) * sin(rad)
-        val Py2 = (x2) * sin(rad) - (y2) * cos(rad)
+        val Px2 = (pointTwo.getX()) * cos(rad) + (pointTwo.getY()) * sin(rad)
+        val Py2 = (pointTwo.getX()) * sin(rad) - (pointTwo.getY()) * cos(rad)
 
         var roundedPx2: Double = String.format("%.2f", Px2).toDouble()
         var roundedPy2: Double = String.format("%.2f", Py2).toDouble()
@@ -68,7 +68,7 @@ class Line(private val pointOne: Point, private val pointTwo: Point) {
         if (roundedPx2 == -0.0) roundedPx2 = 0.0
         if (roundedPy2 == -0.0) roundedPy2 = 0.0
 
-        return Line(x1, y1, roundedPx2, roundedPy2)
+        return Line(pointOne.getX(), pointOne.getY(), roundedPx2, roundedPy2)
 
 //        val x2 = (x2 * cos(degrees) - y2 * sin(degrees))
 //        val y2 = (y2 * cos(degrees) + x2 * sin(degrees))
@@ -104,7 +104,7 @@ class Line(private val pointOne: Point, private val pointTwo: Point) {
         val x = a.getX()
         val y = a.getY()
 
-        return when ((x - x1) / (x2 - x1) == (y - y1) / (y2 - y1)) {
+        return when ((x - pointOne.getX()) / (pointTwo.getX() - pointOne.getX()) == (y - pointOne.getY()) / (pointTwo.getY() - pointOne.getY())) {
             true -> true
             false -> false
         }

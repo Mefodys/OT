@@ -2,27 +2,25 @@ package hw9
 
 import kotlin.math.*
 
-class Line(val pointOne: Point, val pointTwo: Point) {
+class Line(private val pointOne: Point, private val pointTwo: Point) {
 
-    private var x1 = pointOne.getX()
-    private var y1 = pointOne.getY()
-    private var x2 = pointTwo.getX()
-    private var y2 = pointTwo.getY()
+    private val x1 = pointOne.getX()
+    private val y1 = pointOne.getY()
+    private val x2 = pointTwo.getX()
+    private val y2 = pointTwo.getY()
 
-    constructor(firstPointX: Double, firstPointY: Double, secondPointX: Double, secondPointY: Double) :
-            this(pointOne = Point(x = 0.0, y = 0.0), pointTwo = Point(x = 0.0, y = 0.0)) {
-        x1 = firstPointX
-        y1 = firstPointY
-        x2 = secondPointX
-        y2 = secondPointY
-    }
+    constructor(
+        firstPointX: Double,
+        firstPointY: Double,
+        secondPointX: Double,
+        secondPointY: Double
+    ) :
+            this(Point(0.0, 0.0), Point(0.0, 0.0))
 
-    constructor(anotherLine: Line) : this(pointOne = Point(x = 0.0, y = 0.0), pointTwo = Point(x = 0.0, y = 0.0)) {
-        x1 = anotherLine.x1
-        y1 = anotherLine.y1
-        x2 = anotherLine.x2
-        y2 = anotherLine.y2
-    }
+    constructor(
+        anotherLine: Line
+    ) :
+            this(Point(0.0, 0.0), Point(0.0, 0.0))
 
     override fun toString(): String {
         return "Line[Point[$x1, $y1], Point[$x2, $y2]]"

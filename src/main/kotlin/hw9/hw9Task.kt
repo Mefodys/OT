@@ -90,8 +90,6 @@ fun main() {
     val l3 = Line(l2)
     println(l3)
 
-    println(l2.len())
-
     val l4 = Line(0.0, 0.0, 2.0, 4.0)
     println(l4.rotate(90.0))
     println(l4.rotate90(1))
@@ -99,6 +97,8 @@ fun main() {
 
     println(l4.isOnLine(p1))
     println(l4.isOnLine(1.0,2.0))
+
+    println(p10.distanceSq(p11))
 
 }
 
